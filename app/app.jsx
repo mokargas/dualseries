@@ -23,17 +23,18 @@ const selectedTags = [{parent: 'Engagement', selected:["Total", "Ongoing", "Non-
 
 //Entities: Require matching data in entityData
 const selectedEntities = entities.map( e=>e.id )
-const selectedDatasets = datasets.map( d=>d.id === 1 || d.id === 2 )
-
+const selectedDatasets = [1, 2]
 
 //All would be a special case. We select all here
-const selectedCategories = selectedDatasets.map(id=>{
-  const {categories} = datasets.find(i=>i.id === id)
-  return{
+const selectedCategories = selectedDatasets.map(id => {
+  const found = datasets.find(i => i.id === Number(id));
+  console.log(found, datasets)
+  const { categories } = found;
+  return {
     parent: id,
-    categories,
-  }
-})
+    categories
+  };
+});
 
 class Container extends React.PureComponent {
   constructor() {

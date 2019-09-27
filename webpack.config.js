@@ -4,6 +4,7 @@ module.exports = {
   context: path.join(__dirname, './'),
   entry: './app/app.jsx',
   mode: 'development',
+  devtool: 'eval-source-map',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
