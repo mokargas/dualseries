@@ -27,8 +27,8 @@ const selectedDatasets = [1, 2]
 
 //All would be a special case. We select all here
 const selectedCategories = selectedDatasets.map(id => {
-  const found = datasets.find(i => i.id === Number(id));
-  console.log(found, datasets)
+  const found = datasets.find(i => Number(i.id) === Number(id));
+  console.log(id, found, datasets)
   const { categories } = found;
   return {
     parent: id,

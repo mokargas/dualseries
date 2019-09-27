@@ -161,7 +161,7 @@ export default class App extends Component{
   getCommonTagset(){
     const {selectedDatasets, datasets} = this.props;
     const rawTagsets = selectedDatasets.map(id=>{
-      return datasets.find(a=> a.id === id).tags
+      return datasets.find(a=> Number(a.id) === id).tags
     })
     
     //Dedupe
@@ -269,7 +269,8 @@ export default class App extends Component{
   getSelectedDataset(dataset){
     //DEV: dataset is a string/number here
     const {datasets} = this.props;
-    return datasets.find(d=>d.id === dataset)
+    console.log(dataset, datasets)
+    return datasets.find(d=> Number(d.id) === Number(dataset))
   }
   
   getSelectedEntities(){
