@@ -19,16 +19,11 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "babel-plugin-emotion": "^10.0.19",
+ "babel-plugin-emotion": "^9.2.11",
     "style-loader": "latest",
     "css-loader": "latest",
-    "webpack": "latest"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.5.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.24",
-    "@fortawesome/free-solid-svg-icons": "^5.11.1",
-    "@fortawesome/react-fontawesome": "^0.1.4",
+    "webpack": "latest",
+    "webpack-cli": "^3.1.0",
     "emotion": "^10.0.17",
     "express": "^4.17.1",
     "highcharts": "^7.2.0",
@@ -36,7 +31,14 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-emotion": "^9.2.12",
-    "react-select": "^3.0.5" 
+    "react-select": "^3.0.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.24",
+    "@fortawesome/free-solid-svg-icons": "^5.11.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+
   },
   "engines": {
     "node": "8.x"
