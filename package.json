@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "babel-plugin-emotion": "^9.2.11",
+    "babel-plugin-emotion": "^10.0.19",
     "style-loader": "latest",
     "css-loader": "latest",
     "webpack": "latest"
