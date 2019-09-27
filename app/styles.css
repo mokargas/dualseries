@@ -1,0 +1,10 @@
+ul.list {
+ padding: 10px;
+ background-color: yellow;
+ list-style-type: none;
+}
+
+li.listItem {
+ padding: 3px;
+ background-color: orange;
+}
