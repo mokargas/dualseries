@@ -95,7 +95,8 @@ export default class App extends Component{
       return [
         ...data.filter(a=> selectedDatasets.includes(a.id)).map(item=>{
          const {id, data: categoryData} = item;
-         const selected = selectedCategories.filter(i=> i.parent === id)[0].categories
+          console.log('sel', selectedCategories)
+         const selected = selectedCategories.filter(i=> Number(i.parent) === Number(id))[0].categories
          const data = selected.map( cat => categoryData.filter(o=>checkForProp(o, cat))).flat()
          
           return{
@@ -161,7 +162,7 @@ export default class App extends Component{
   getCommonTagset(){
     const {selectedDatasets, datasets} = this.props;
     const rawTagsets = selectedDatasets.map(id=>{
-      return datasets.find(a=> Number(a.id) === id).tags
+      return datasets.find(a=> Number(a.id) === Number(id)).tags
     })
     
     //Dedupe
@@ -301,7 +302,7 @@ export default class App extends Component{
               return {
                 value: d.id,
                 label: d.name,
-                default: selectedDatasets.find(i => i === d.id)
+                default: selectedDatasets.find(i => Number(i) === Number(d.id))
               }
             })
             } onChange={selection=> onDatasetChange && onDatasetChange(selection)} />
