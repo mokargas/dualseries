@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, './'),
   entry: './app/app.jsx',
+  mode: 'development',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
