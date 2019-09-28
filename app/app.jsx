@@ -77,34 +77,34 @@ class Container extends React.PureComponent {
     const { datasets, selectedDatasets, selectedCategories } = this.state
     
     //Contains ids of all selected datasets
-    const selectionIds = selection.map(s => s.value)
+    const selectionIds = selection.map(s => Number(s.value))
     
     //Contains ids of all datasets with existing category settings
     const existingCategories = selectedCategories.map(c => c.parent)
     
     //Preselect categories for a new selection. 
     //Check existing 
-    const common = selectionIds.filter(id=> categorySet.includes(id))
-    console.log('common', common, selectionIds, selectedCategories, categorySet)
+    const common = existingCategories.filter(id=> selectionIds.includes(id))
+    console.log('common', common, selectionIds, existingCategories)
     
-    if(common.length > 0){
-      const newCats = common.map(id=>({parent: id, categories:[]}))
-      console.log('new cats', newCats)
-      this.setState({
-        ...selectedCategories,
-        selectedCategories: newCats
-      })
-    }
+//     if(common.length > 0){
+//       const newCats = common.map(id=>({parent: id, categories:[]}))
+//       console.log('new cats', newCats)
+//       this.setState({
+//         ...selectedCategories,
+//         selectedCategories: newCats
+//       })
+//     }
     
-    const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
+//     const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
     
-    const selectedIds = newDatasets.map(d=>d.id)
+//     const selectedIds = newDatasets.map(d=>d.id)
            
     
-    console.log('selected ids', selectedIds, newDatasets)
-    this.setState({
-      selectedDatasets: selectedIds
-    })
+//     console.log('selected ids', selectedIds, newDatasets)
+//     this.setState({
+//       selectedDatasets: selectedIds
+//     })
   }
   
   
