@@ -74,7 +74,7 @@ class Container extends React.PureComponent {
   }
   
   onChange(selection){
-    const { datasets } = this.state
+    const { datasets, selectedCategories } = this.state
     
     const selectionIds = selection.map(s => s.value)
     const selectedDatasets = selectionIds.map(id=>{
@@ -83,6 +83,8 @@ class Container extends React.PureComponent {
     console.log('dataset on change', selection, selectionIds, selectedDatasets)
     
     const selectedIds = selectedDatasets ? selectedDatasets.map(d=>d.id): []
+    
+    //Preselect categories for a new selection
     
     
     console.log('selected ids', selectedIds)
