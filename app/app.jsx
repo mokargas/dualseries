@@ -83,8 +83,15 @@ class Container extends React.PureComponent {
     const categorySet = selectedCategories.map(c=>c.parent)
     
     const common = categorySet.filter(id=> selectionIds.includes(id))
-    console.log('common', common)
+    console.log('common', common, selectedCategories, categorySet)
     
+    if(common.length > 0){
+      const newCats = common.map(id=>({parent: id, categories:[]}))
+      this.setState({
+        ...selectedCategories,
+        selectedCategories: newCats
+      })
+    }
     
     const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
     console.log('dataset on change', selection, selectionIds, selectedDatasets)
