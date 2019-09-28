@@ -98,7 +98,9 @@ class Container extends React.PureComponent {
       // })
     }
     
-    if(isAdding)
+    if(isAdding){
+      console.log(difference(selectionIds, existingCategories))
+    }
     
     console.log('isAdding:', isAdding, 'isDeleting', isDeleting)
       
