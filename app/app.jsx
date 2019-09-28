@@ -75,6 +75,7 @@ class Container extends React.PureComponent {
   
   onChange(selection){
     const {datasets} = this.state
+    console.log('dataset on change', selection)
     const selectedIds = selection.reduce((a, c) => {
       a.push(c.value)
       return a
