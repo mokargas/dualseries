@@ -298,7 +298,6 @@ export default class App extends Component{
               const {id, name} = d
               const isDefault = selectedDatasets.some(i => i === Number(id))
               
-              console.log('isDefault', isDefault, selectedDatasets, datasets)
               return {
                 value: id,
                 label: name,
