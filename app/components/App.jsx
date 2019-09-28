@@ -16,7 +16,6 @@ const defaultOptions = {
   chart: {
     type: 'column'
   },
-
   plotOptions:{
     column:{
      stacking: 'normal'
