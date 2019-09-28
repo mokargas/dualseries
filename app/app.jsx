@@ -77,7 +77,7 @@ class Container extends React.PureComponent {
     const { datasets, selectedDatasets, selectedCategories } = this.state
     
     //Contains ids of all selected datasets
-    const selectionIds = selection.map(s => Number(s.value))
+    const selectionIds = selection? selection.map(s => Number(s.value)): []
     
     //Contains ids of all datasets with existing category settings
     const existingCategories = selectedCategories.map(c => c.parent)
@@ -86,6 +86,7 @@ class Container extends React.PureComponent {
     //Check existing    
     const isAdding = selectionIds.length > existingCategories.length
     const isDeleting = selectionIds.length < existingCategories.length
+    const isEmptied = selectionIds.length === 0
     
     if(isDeleting){
       //Eject category
@@ -93,7 +94,7 @@ class Container extends React.PureComponent {
       console.log('parent', parent)
       this.setState({
         selectedCategories: [...selectedCategories.filter(i=>i.parent !== parent)],
-        selectedDatasets: [...selectedDatasets.filter(i=>Number(i.id) !== parent)]
+        selectedDatasets: [...selectedDatasets.filter(i=>Number(i) !== parent)]
       }, ()=>{
         console.log(this.state)
       })
@@ -111,6 +112,14 @@ class Container extends React.PureComponent {
         selectedDatasets: selectedIds
       }, ()=>{
         console.log(this.state)
+      })
+    }
+    
+    if(isEmptied){
+      this.setState({
+        selectedCategories: [],
+        selectedDatasets: [],
+        selectedTags: []
       })
     }
     
