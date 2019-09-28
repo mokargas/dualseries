@@ -94,6 +94,7 @@ export default class App extends Component{
       return [
         ...data.filter(a=> selectedDatasets.includes(a.id)).map(item=>{
          const {id, data: categoryData} = item;
+          console.log('item', item)
          const selected = selectedCategories.filter(i=> Number(i.parent) === Number(id))[0].categories
          const data = selected.map( cat => categoryData.filter(o=>checkForProp(o, cat))).flat()
          
@@ -246,6 +247,7 @@ export default class App extends Component{
         }
       })
     }).flat().map((series, idx)=>({...series, stack: idx}))
+    console.log(series)
     return series
   }
   

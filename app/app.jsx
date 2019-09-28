@@ -129,7 +129,7 @@ class Container extends React.PureComponent {
   
   onCategoryChange(parent, selected){   
     const {selectedCategories} = this.state;
-    const categories = selected.map(s=>s.value)
+    const categories = selected ? selected.map(s=>s.value): []
    
     this.setState({
       selectedCategories:[
