@@ -2,9 +2,10 @@ import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom'
 import difference from 'lodash.difference'
 
-
 import App from './components/App'
 
+
+//Data
 import entities from './fixture/entities'
 import entityData from './fixture/data'
 import datasets from './fixture/datasets'
@@ -16,7 +17,7 @@ const selectedYear = "2017/18"
 const selectedYears = ["at 30 June 2017", "at 30 June 2018"]
 
 //All "years" available
-const years = ["at 30 June 017", "at 30 June 2018"]
+const years = ["at 30 June 2017", "at 30 June 2018"]
 
 //Initially selected tagsets.
 const selectedTags = [{parent: 'Engagement', selected:["Total", "Ongoing", "Non-Ongoing"]}]
