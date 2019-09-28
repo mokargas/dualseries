@@ -268,7 +268,6 @@ export default class App extends Component{
   getSelectedDataset(dataset){
     //DEV: dataset is a string/number here
     const {datasets} = this.props;
-    console.log(dataset, datasets)
     return datasets.find(d=> Number(d.id) === Number(dataset))
   }
   
@@ -297,10 +296,14 @@ export default class App extends Component{
       <Fragment>
         <Filters>
           <Filter isMulti options={datasets.map(d=>{
+              const {id, name} = d
+              const isDefault = selectedDatasets.filter(i => Number(i) === Number(id));
+              
+              console.log('isDefault', isDefault, selectedDatasets, datasets)
               return {
-                value: d.id,
-                label: d.name,
-                default: selectedDatasets.find(i => Number(i) === Number(d.id))
+                value: id,
+                label: name,
+                default: isDefault
               }
             })
             } onChange={selection=> onDatasetChange && onDatasetChange(selection)} />
