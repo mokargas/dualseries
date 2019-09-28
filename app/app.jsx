@@ -87,6 +87,17 @@ class Container extends React.PureComponent {
     const common = existingCategories.filter(id=> selectionIds.includes(id))
     console.log('common', common, selectionIds, existingCategories)
     
+    const isAdding = selectionIds.length > existingCategories.length
+    const isDeleting = selectionIds.length < existingCategories.length
+    
+    if(isDeleting){
+      //Eject category
+      this.setState({
+        selectedCategories: selectedCategories.filter()
+      })
+    }
+    console.log('isAdding:', isAdding, 'isDeleting', isDeleting)
+      
 //     if(common.length > 0){
 //       const newCats = common.map(id=>({parent: id, categories:[]}))
 //       console.log('new cats', newCats)
