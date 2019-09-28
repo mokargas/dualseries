@@ -92,41 +92,33 @@ class Container extends React.PureComponent {
     
     if(isDeleting){
       //Eject category
-      console.log(difference(existingCategories, selectionIds))
       const parent = difference(existingCategories, selectionIds)[0]
 
       this.setState({
         selectedCategories: [...selectedCategories.filter(i=>i.parent === parent)]
+      }, ()=>{
+        console.log(this.state.selectedCategories)
       })
     }
     
     if(isAdding){
-      console.log(difference(selectionIds, existingCategories))
       const parent = difference(selectionIds, existingCategories)[0]
       const newCat = {parent, categories:[]}
       
       this.setState({
         selectedCategories: [...selectedCategories, newCat]
+      }, ()=>{
+        console.log(this.state.selectedCategories)
       })
     }
     
     console.log('isAdding:', isAdding, 'isDeleting', isDeleting)
-      
-//     if(common.length > 0){
-//       const newCats = common.map(id=>({parent: id, categories:[]}))
-//       console.log('new cats', newCats)
-//       this.setState({
-//         ...selectedCategories,
-//         selectedCategories: newCats
-//       })
-//     }
-    
+          
     const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
     
     const selectedIds = newDatasets.map(d=>d.id)
            
-    
-    console.log('selected ids', selectedIds, newDatasets)
+   
     this.setState({
       selectedDatasets: selectedIds
     })

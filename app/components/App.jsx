@@ -94,7 +94,6 @@ export default class App extends Component{
       return [
         ...data.filter(a=> selectedDatasets.includes(a.id)).map(item=>{
          const {id, data: categoryData} = item;
-          console.log('sel', selectedCategories, item )
          const selected = selectedCategories.filter(i=> Number(i.parent) === Number(id))[0].categories
          const data = selected.map( cat => categoryData.filter(o=>checkForProp(o, cat))).flat()
          
