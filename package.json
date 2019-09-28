@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
-     "babel-plugin-emotion": "^9.2.11",
+    "babel-plugin-emotion": "^9.2.11",
     "style-loader": "latest",
     "css-loader": "latest",
     "webpack": "latest",
@@ -37,7 +37,8 @@
     "@babel/runtime": "^7.5.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.24",
     "@fortawesome/free-solid-svg-icons": "^5.11.1",
-    "@fortawesome/react-fontawesome": "^0.1.4"
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "lodash.difference": "^4.5.0"
   },
   "engines": {
     "node": "8.x"

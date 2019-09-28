@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react';
-import ReactDOM from 'react-dom';
+import React, {Fragment} from 'react'
+import ReactDOM from 'react-dom'
+import difference from 'lodash.difference'
 
-/* Import Components */
 
 import App from './components/App'
 
@@ -92,10 +92,14 @@ class Container extends React.PureComponent {
     
     if(isDeleting){
       //Eject category
-      this.setState({
-        selectedCategories: selectedCategories.filter()
-      })
+      console.log(difference(existingCategories, selectionIds))
+      // this.setState({
+      //   selectedCategories: selectedCategories.filter()
+      // })
     }
+    
+    if(isAdding)
+    
     console.log('isAdding:', isAdding, 'isDeleting', isDeleting)
       
 //     if(common.length > 0){
