@@ -76,18 +76,24 @@ class Container extends React.PureComponent {
   onChange(selection){
     const { datasets, selectedDatasets, selectedCategories } = this.state
     
+    //Contains ids of all selected datasets
     const selectionIds = selection.map(s => s.value)
     
-    const newDatasets  = selectionIds.map(id=>{
-      return datasets.find(i=>Number(i.id) === Number(id))
-    })
+    //Contains ids of all datasets with existing category settings
+    const categorySet = selectedCategories.map(c=>c.parent)
+    
+    const common = categorySet.filter(id=> selectionIds.includes(id))
+    console.log('common', common)
+    
+    
+    const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
     console.log('dataset on change', selection, selectionIds, selectedDatasets)
     
     const selectedIds = selectedDatasets ? selectedDatasets.map(d=>d.id): []
     
     //Preselect categories for a new selection. 
     //Check existing 
-    selectedCategories.find(i=>i.parent)
+    
     
     
     console.log('selected ids', selectedIds)
