@@ -77,6 +77,7 @@ class Container extends React.PureComponent {
     const { datasets, selectedDatasets, selectedCategories } = this.state
     
     const selectionIds = selection.map(s => s.value)
+    
     const newDatasets  = selectionIds.map(id=>{
       return datasets.find(i=>Number(i.id) === Number(id))
     })
