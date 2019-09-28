@@ -74,18 +74,20 @@ class Container extends React.PureComponent {
   }
   
   onChange(selection){
-    const {datasets} = this.state
-    console.log('dataset on change', selection)
-    const selectedIds = selection.reduce((a, c) => {
-      a.push(c.value)
-      return a
-    }, [])
-    const selectedDatasets = selectedIds.map(id=>{
+    const { datasets } = this.state
+    
+    const selectionIds = selection.map(s => s.value)
+    const selectedDatasets = selectionIds.map(id=>{
       return datasets.find(i=>Number(i.id) === Number(id))
     })
+    console.log('dataset on change', selection, selectionIds, selectedDatasets)
     
+    const selectedIds = selectedDatasets ? selectedDatasets.map(d=>d.id): []
+    
+    
+    console.log('selected ids', selectedIds)
     this.setState({
-      selectedDatasets: selectedDatasets ? selectedDatasets.map(d=>d.id): []
+      selectedDatasets: selectedIds
     })
   }
   

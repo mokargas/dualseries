@@ -11,7 +11,9 @@
       "^dist/"
     ],
     "include": [
-      "\\.json"
+      "\\.json",
+      "\\.jsx",
+      "\\.js"
     ]
   },
   "throttle": 100
