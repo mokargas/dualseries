@@ -297,7 +297,7 @@ export default class App extends Component{
         <Filters>
           <Filter isMulti options={datasets.map(d=>{
               const {id, name} = d
-              const isDefault = selectedDatasets.find(i => i === Number(id))
+              const isDefault = selectedDatasets.some(i => i === Number(id))
               
               console.log('isDefault', isDefault, selectedDatasets, datasets)
               return {
