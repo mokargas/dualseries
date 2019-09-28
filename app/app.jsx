@@ -83,10 +83,7 @@ class Container extends React.PureComponent {
     const existingCategories = selectedCategories.map(c => c.parent)
     
     //Preselect categories for a new selection. 
-    //Check existing 
-    const common = existingCategories.filter(id=> selectionIds.includes(id))
-    console.log('common', common, selectionIds, existingCategories)
-    
+    //Check existing    
     const isAdding = selectionIds.length > existingCategories.length
     const isDeleting = selectionIds.length < existingCategories.length
     
@@ -95,9 +92,10 @@ class Container extends React.PureComponent {
       const parent = difference(existingCategories, selectionIds)[0]
 
       this.setState({
-        selectedCategories: [...selectedCategories.filter(i=>i.parent === parent)]
+        selectedCategories: [...selectedCategories.filter(i=>i.parent === parent)],
+        selectedDatasets: [...selectedDatasets.filter(i=>Number(i.id) === parent)]
       }, ()=>{
-        console.log(this.state.selectedCategories)
+        console.log(this.state)
       })
     }
     
@@ -105,23 +103,18 @@ class Container extends React.PureComponent {
       const parent = difference(selectionIds, existingCategories)[0]
       const newCat = {parent, categories:[]}
       
+      const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
+      const selectedIds = newDatasets.map(d=>d.id)
+      
       this.setState({
-        selectedCategories: [...selectedCategories, newCat]
+        selectedCategories: [...selectedCategories, newCat],
+        selectedDatasets: selectedIds
       }, ()=>{
-        console.log(this.state.selectedCategories)
+        console.log(this.state)
       })
     }
     
     console.log('isAdding:', isAdding, 'isDeleting', isDeleting)
-          
-    const newDatasets  = selectionIds.map(id=>datasets.find(i=>Number(i.id) === Number(id)))
-    
-    const selectedIds = newDatasets.map(d=>d.id)
-           
-   
-    this.setState({
-      selectedDatasets: selectedIds
-    })
   }
   
   
