@@ -90,10 +90,10 @@ class Container extends React.PureComponent {
     if(isDeleting){
       //Eject category
       const parent = difference(existingCategories, selectionIds)[0]
-
+      console.log('parent', parent)
       this.setState({
-        selectedCategories: [...selectedCategories.filter(i=>i.parent === parent)],
-        selectedDatasets: [...selectedDatasets.filter(i=>Number(i.id) === parent)]
+        selectedCategories: [...selectedCategories.filter(i=>i.parent !== parent)],
+        selectedDatasets: [...selectedDatasets.filter(i=>Number(i.id) !== parent)]
       }, ()=>{
         console.log(this.state)
       })
